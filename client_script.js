@@ -13,13 +13,13 @@ const ownership = {
 for (const player in ownership) {
   const provinces = ownership[player];
 
-  provinces.forEach(name => {
-    const path = document.querySelector(`path[name="${name}"]`);
+  provinces.forEach(code => {
+    const path = document.querySelector(`path[data-code="${code}"]`);
     if (path) path.classList.add(player);
   });
 }
 
-document.querySelectorAll(".districts *").forEach(district => {
+document.querySelectorAll("path[data-code]").forEach(district => {
     district.addEventListener("click", e => {
       onDistrictClick(district, e)
     })
@@ -29,7 +29,7 @@ function onDistrictClick(district, event) {
 
 	const tooltip = document.getElementById("tooltip")
 
-	tooltip.textContent = district.name.replace("_", " ")
+	tooltip.textContent = district.dataset.code
 	tooltip.style.left = event.clientX + 10 + "px"
 	tooltip.style.top = event.clientY + 10 + "px"
 	tooltip.hidden = false
