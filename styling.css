@@ -13,7 +13,6 @@
 }
 .districts .vorona {
         fill: #3550e7ff;
-
 }
 .districts .navarr {
         fill: #e01c1cff;
@@ -41,16 +40,24 @@
 }
 
 .districts * {
-  pointer-events: all;
-  fill: #faecd5ff;
-  cursor: pointer;
-      transition: all ease 0.3s;
+	pointer-events: all;
+	fill: #faecd5ff;
+	cursor: pointer;
+	transition: all ease 0.3s;
+	display: inline;
+	fill-opacity: 1;
+	stroke: #000000;
+	stroke-width: 0.0712781;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: none;
+	stroke-opacity: 1;
 }
 .districts *:hover {
-        stroke-width: 1;
+        stroke-width: 0.1;
 }
-.districts * .selected {
-        fill: green;
+.districts .selected {
+        stroke-width: 0.12;
       transition: all ease 0.3s;
 }
 #tooltip {

@@ -1,21 +1,42 @@
-  document.querySelectorAll(".districts *").forEach(district => {
-	district.addEventListener("click", () => {
-	console.log("click event occurred");
-
-	})
-	  if (district.matches())
+const ownership = {
+	vorona: ['yor', 'lon', 'cly', 'lvp', 'wal', 'edi'],
+	navarr: ['bre', 'pic', 'par', 'bur', 'mar'],
+	valletta: ['fin', 'stp', 'lvn', 'mos', 'ukr', 'sev', 'war'],
+	alvaro: ['tyr', 'tri', 'vie', 'bud', 'gal', 'boh'],
+	broadsheet: ['ruh', 'kie', 'mun', 'ber', 'sil', 'pru'],
+	rasp: ['pie', 'tus', 'ven', 'rom', 'apu', 'nap'],
+	fulcrum: ['con', 'smy', 'ank', 'arm' ],
 	
 
-})
-  document.querySelectorAll('path[name]').forEach(path => {
-	  if (vorona_districts.has(path.getAttribute('name'))) {
-		  path.classList.add('vorona')
+}
 
-	  }
+for (const player in ownership) {
+  const provinces = ownership[player];
 
+  provinces.forEach(name => {
+    const path = document.querySelector(`path[name="${name}"]`);
+    if (path) path.classList.add(player);
+  });
+}
+
+document.querySelectorAll(".districts *").forEach(district => {
+    district.addEventListener("click", e => {
+      onDistrictClick(district, e)
+    })
   })
 
-const vorona_districts = new Set(['yor', 'lon', 'cly', 'lvp', 'wal'])
-const navarr_districts = new Set(['bre', 'pic', 'par', 'bur', 'mar'])
-const valleta_districts = new Set(['fin', 'stp', 'lvn', 'mos', 'ukr', 'sev', 'war'])
+function onDistrictClick(district, event) {
 
+	const tooltip = document.getElementById("tooltip")
+
+	tooltip.textContent = district.name.replace("_", " ")
+	tooltip.style.left = event.clientX + 10 + "px"
+	tooltip.style.top = event.clientY + 10 + "px"
+	tooltip.hidden = false
+	console.log(district)
+	document
+	.querySelectorAll(".districts .selected")
+	.forEach(r => r.classList.remove("selected"))
+
+  district.classList.add("selected")
+}
