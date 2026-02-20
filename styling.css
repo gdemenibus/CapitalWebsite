@@ -1,0 +1,65 @@
+.map {
+  color: red;
+}
+.sea {
+  fill: #79b8f4ff;
+}
+.power {
+  fill: #ffffff;
+
+}
+.unpassable {
+  fill: #686762ff;
+}
+.districts .vorona {
+        fill: #3550e7ff;
+
+}
+.districts .navarr {
+        fill: #e01c1cff;
+
+}
+.districts .valletta{
+        fill: #e7e734ff;
+
+}
+.districts .alvaro {
+        fill: #1d720eff;
+
+}
+.districts .broadsheet {
+        fill: #8b70c0ff;
+
+}
+.districts .rasp{
+        fill: #e89341ff;
+
+}
+.districts .fulcrum{
+        fill: #c040e8ff;
+
+}
+
+.districts * {
+  pointer-events: all;
+  fill: #faecd5ff;
+  cursor: pointer;
+      transition: all ease 0.3s;
+}
+.districts *:hover {
+        stroke-width: 1;
+}
+.districts * .selected {
+        fill: green;
+      transition: all ease 0.3s;
+}
+#tooltip {
+	position: fixed;
+	background: #222;
+	color: white;
+	padding: 8px 10px;
+	border-radius: 6px;
+	font-size: 14px;
+	pointer-events: none;	
+}
+
